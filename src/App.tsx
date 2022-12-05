@@ -1,18 +1,24 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from './componentes/estaticos/Navbar/navbar';
 import Home from './paginas/home/Home';
-import Footer from './componentes/estaticos/Footer/footer'
-import { Grid } from '@material-ui/core'
+import Footer from './componentes/estaticos/Footer/footer';
+import './App.css';
+import CadastroUsuario from './paginas/CadastroUsuario/CadastroUsuario';
+import Login from "./paginas/login/Login";
 
 function App() {
-
   return (
-    <>
+    <Router>
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 
